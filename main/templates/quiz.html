@@ -1,0 +1,61 @@
+{% extends 'base-generation.html' %}
+
+{% load static %}
+
+{% block title %}
+{{next}} Вопрос
+{% endblock %}
+
+{% block content %}
+<main>
+
+    <div class="game-quiz-container">
+
+        <div class="game-details-container">
+            <h1>Вопрос : {{next}}<span id="question-number"><!-- НОМЕР ВОПРОСА --></span> / {{count}}</h1>
+        </div>
+
+        <div class="game-question-container">
+            <h1 id="display-question">
+                {{question.text}}
+            </h1>
+        </div>
+
+        <form method="post" class="game-options-container">
+                <span>
+                    <input type="radio" id="option-one" name="option" class="radio" value="optionA" />
+                    <label for="option-one" class="option {% if question.a_right %}right{% endif %}" id="option-one-label">
+                        {{question.a}}</label>
+                </span>
+
+
+                <span>
+                    <input type="radio" id="option-two" name="option" class="radio" value="optionB" />
+                    <label for="option-two" class="option {% if question.b_right %}right{% endif %}" id="option-two-label">
+                        {{question.b}}</label>
+                </span>
+
+
+                <span>
+                    <input type="radio" id="option-three" name="option" class="radio" value="optionC" />
+                    <label for="option-three" class="option {% if question.c_right %}right{% endif %}" id="option-three-label">
+                        {{question.c}}</label>
+                </span>
+
+
+                <span>
+                    <input type="radio" id="option-four" name="option" class="radio" value="optionD" />
+                    <label for="option-four" class="option {% if question.d_right %}right{% endif %}" id="option-four-label">
+                        {{question.d}}</label>
+                </span>
+
+
+            </form>
+
+        <div class="next-button-container">
+            <a href="{% url 'quiz' pk=quiz quest=next %}">{% if count == next %} Вернуться к анкетам {% else %} Следующий вопрос{% endif %}</a>
+        </div>
+
+    </div>
+</main>
+{% endblock %}

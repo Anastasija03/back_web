@@ -1,0 +1,17 @@
+{% extends 'base-generation.html' %}
+
+{% load static %}
+
+
+{% block title %}
+Опросы
+{% endblock %}
+
+{% block content %}
+<ul class="asingakub-gesoupem"></ul>
+{% for item in list %}
+<a href="{% url 'quiz' pk=item.pk quest=0 %}" class="quiz-thumb"><img class="css-adaptive" src="{{ item.thumb.url }}"
+        alt=""></a>
+{% endfor %}
+</ul>
+{% endblock %}

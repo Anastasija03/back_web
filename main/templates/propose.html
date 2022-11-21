@@ -1,0 +1,24 @@
+{% extends 'base-generation.html' %}
+
+{% load static %}
+
+{% block title %}
+Предложить опрос
+{% endblock %}
+
+{% block content %}
+<h1 class="form-page-title">Опишите в этой форме ваше предложение для новых опросов</h1>
+<form method="post" class="form-page">
+    {% csrf_token %}
+    <label class="form-page-label" for="title">Название</label>
+    <input class="form-page-input" id="title" name="title" type="text" required>
+
+    <label class="form-page-label" for="topic">Тема</label>
+    <input class="form-page-input" id="topic" name="topic" type="text" required>
+
+    <label class="form-page-label" for="description">Описание вашей идеи</label>
+    <textarea class="form-page-input" id="description" name="description" type="text" required> </textarea>
+
+    <input type="submit" class="form-page-input">
+</form>
+{% endblock %}

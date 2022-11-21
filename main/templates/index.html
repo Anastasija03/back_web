@@ -1,0 +1,14 @@
+{% extends 'base-generation.html' %}
+{% load static %}
+
+{% block title %}
+Главная
+{% endblock %}
+
+{% block content %}
+<div class="hello">
+    <h1>Добро пожаловать!</h1>
+    <p>Для перехода к опросам нажмите кнопку ниже</p>
+    <a href="{% url 'quiz_list' %}">Перейти к опросам</a>
+</div>
+{% endblock %}

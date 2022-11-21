@@ -1,0 +1,30 @@
+{% extends 'base-generation.html' %}
+
+{% load static %}
+
+{% block title %}
+Форма
+{% endblock %}
+
+{% block content %}
+<h1 class="form-page-title">Форма информации о пользователе</h1>
+<form method="post" class="form-page">
+    {% csrf_token %}
+    <label class="form-page-label" for="name">Ваше имя</label>
+    <input class="form-page-input" id="name" name="name" type="text" required>
+
+    <label class="form-page-label" for="surname">Ваша фамилия</label>
+    <input class="form-page-input" id="surname" name="surname" type="text" required>
+
+    <label class="form-page-label" for="years">Сколько вам лет?</label>
+    <input class="form-page-input" id="years" name="years" type="number" required>
+
+    <label class="form-page-label" for="email">Ваша электронная почта</label>
+    <input class="form-page-input" id="email" name="email" type="email" required>
+
+    <label class="form-page-label" for="country">Ваша страна проживания</label>
+    <input class="form-page-input" id="country" name="country" type="text" required>
+
+    <input type="submit" class="form-page-input">
+</form>
+{% endblock %}
